@@ -1,12 +1,4 @@
-/*
-  DB22 Assignment 01
-  Date: 2026-04-28
-  Class: PI51A
-  No: 07
-  Name: Ren Pengfei
 
-  This file contains SQL practice answers for assignment 01.
-*/
 
 -- 1
 SELECT COUNT(*) AS count_employees

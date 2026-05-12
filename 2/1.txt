@@ -1,0 +1,80 @@
+
+
+-- 1
+select count(*) as 件数 from employees;
+
+-- 2
+select last_name,employee_id
+from employees
+where employee_id <= 200;
+
+-- 3
+select department_id,count(*) as 人数
+from employees
+group by department_id;
+
+-- 4
+select department_id,count(*) as 人数
+from employees
+group by department_id having count(*) >= 4;
+
+-- 5
+select department_id,count(*)
+from employees
+group by department_id
+having count(*) >=4
+order by count(*) desc;
+
+-- 6
+select sum(salary)/count(*) as average_salary
+from employees;
+
+-- 7
+select last_name,salary as 給与
+from employees
+where salary = (select min(salary) from employees);
+
+-- 8-1
+select e.department_id,d.department_name,last_name
+from employees e,departments d
+where e.department_id = d.department_id
+order by e.department_id;
+
+-- 8-2
+select e.department_id,d.department_name,last_name
+from employees e
+join departments d /*表１*/
+on e.department_id = d.department_id /*結合表*/
+order by e.department_id;
+
+-- 9
+select e.department_id,d.department_name,last_name
+from employees e
+join departments d /*表１*/
+on e.department_id = d.department_id /*結合表*/
+where e.department_id = 80
+order by e.department_id;
+
+-- 10
+
+select e.department_id,e.last_name
+from employees e left
+join departments d /*表１*/
+on e.department_id = d.department_id /*結合表*/
+order by e.department_id;
+
+
+-- 11
+select e1.last_name 従業員,e2.last_name 上司
+from employees e1
+join employees e2  /*表１*/
+on e1.manager_id = e2.employee_id; /*結合表*/
+
+-- 12
+select e.last_name,e.salary,j.grade_level
+from employees e
+join job_grades j /*表１*/
+on e.salary between j.lowest_sal and j.higest_sal; /*結合表*/
+
+-- END ---
+
