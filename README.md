@@ -36,6 +36,15 @@
 - ERD（Entity Relationship Diagram）：用于表达实体、属性和实体之间的关系
 - 实体（Entity）：系统中需要管理的对象，例如学生、员工、部门、商品等
 - 关系（Relationship）：实体之间的联系，例如员工属于部门、学生选修课程
+- 实体的常见种类：
+  - 人：顾客、员工、学生、负责人
+  - 物：商品、物件、文件、车辆、设备
+  - 地点：店铺、仓库、教室、房间
+  - 事件：订单、预约、合同、付款、出勤
+  - 概念：部门、职位、权限、科目、分类
+- ER 图的基本部件：实体、属性、关系、主键、外键，以及表示数量关系的连接线
+- 基数（Cardinality）：表示两个实体之间的数量关系，例如一对一、一对多、多对多
+- 可选性（Optionality）：表示某个关系是否必须存在，例如员工必须属于某个部门，或者顾客不一定有订单
 
 ### 文件说明
 - `1/sql_practice.sql`: SQL 复习记录和课题模板
@@ -83,6 +92,15 @@
 - ERD（Entity Relationship Diagram）：エンティティ、属性、エンティティ間の関係を表す図
 - エンティティ（Entity）：システムで管理する実体。例：学生、従業員、部署、商品など
 - リレーションシップ（Relationship）：エンティティ同士の関係。例：従業員が部署に所属する、学生が科目を履修する
+- エンティティの主な種類：
+  - 人：顧客、社員、学生、担当者
+  - 物：商品、物件、書類、車、設備
+  - 場所：店舗、倉庫、教室、部屋
+  - 出来事：注文、予約、契約、入金、出席
+  - 概念：部門、役職、権限、科目、カテゴリ
+- ER 図の基本部品：エンティティ、属性、リレーションシップ、主キー、外部キー、数量関係を表す線
+- カーディナリティ（Cardinality）：2 つのエンティティ間の数量関係。例：1 対 1、1 対多、多対多
+- オプショナリティ（Optionality）：関係が必須か任意かを表す考え方。例：従業員は必ず部署に所属するが、顧客は注文を持たない場合もある
 
 ### ファイル
 - `1/sql_practice.sql`: SQL 復習メモと課題テンプレート
@@ -130,6 +148,15 @@ Database design is more than creating tables and columns. It starts with underst
 - ERD (Entity Relationship Diagram): a diagram for entities, attributes, and relationships
 - Entity: an object managed by the system, such as a student, employee, department, or product
 - Relationship: a connection between entities, such as an employee belonging to a department or a student taking a course
+- Common entity types:
+  - Person: customer, employee, student, person in charge
+  - Object: product, property, document, car, equipment
+  - Place: store, warehouse, classroom, room
+  - Event: order, reservation, contract, payment, attendance
+  - Concept: department, job title, permission, subject, category
+- Basic ER diagram parts: entities, attributes, relationships, primary keys, foreign keys, and lines showing relationship rules
+- Cardinality: the number relationship between two entities, such as one-to-one, one-to-many, and many-to-many
+- Optionality: whether a relationship is required or optional, such as an employee requiring a department while a customer may have no orders
 
 ### Files
 - `1/sql_practice.sql`: SQL review notes and assignment template
