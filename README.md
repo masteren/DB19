@@ -14,6 +14,12 @@
 
 数据库设计不仅是创建表和字段，还需要先理解业务对象、对象之间的关系，以及数据在系统中如何被长期维护。良好的数据库设计可以提高系统开发效率，减少重复数据和维护成本，并让后续功能扩展更加稳定。
 
+### 2026-05-19
+
+本周继续学习数据库设计，重点是根据业务内容制作 ER 图。课堂笔记整理了从业务分析和访谈内容中抽取名词、发现实体和属性、确定主键与外键，以及把多对多关系转换为中间表的流程。
+
+本次课题以教育管理系统为例，设计了講師、コース、受講生、教室、スケジュール、受講等实体。其中スケジュール使用「コースコード + 実施開始日」作为复合主键，受講表用于连接受講生和スケジュール。
+
 ### 学习内容
 - `SELECT` / `FROM` 的基本查询结构
 - `WHERE` 条件筛选
@@ -45,12 +51,21 @@
 - ER 图的基本部件：实体、属性、关系、主键、外键，以及表示数量关系的连接线
 - 基数（Cardinality）：表示两个实体之间的数量关系，例如一对一、一对多、多对多
 - 可选性（Optionality）：表示某个关系是否必须存在，例如员工必须属于某个部门，或者顾客不一定有订单
+- ER 图作成流程：业务整理、实体抽取、属性整理、主键确定、关系整理、外键设计
+- 从访谈和需求说明中抽取名词，用于发现实体和属性
+- 复合主键：使用多个字段共同唯一识别一条记录
+- 外键：连接相关表，并保证引用的数据存在
+- 中间表：用于表达多对多关系，例如受講生和スケジュール之间的受講表
+- 教育管理系统 ER 图：講師、コース、受講生、教室、スケジュール、受講
 
 ### 文件说明
 - `1/sql_practice.sql`: SQL 复习记录和课题模板
 - `1/DB22_assignment01.sql`: DB22 课题 1 SQL 答案整理版
 - `2/笔记.md`: 数据库设计课堂笔记
 - `2/1.txt`: DB22 课题 1 SQL 答案原始记录
+- `3/笔记.md`: ER 图作成和教育管理系统数据库设计笔记
+- `3/扫描的文稿 2.pdf`: 本周课堂资料扫描文件
+- `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理系统 ER 图
 
 之后每周二根据课堂内容继续更新。
 
@@ -69,6 +84,12 @@
 今週のテーマはデータベース設計です。授業メモでは、システム開発におけるデータベース設計の役割、長期利用を考えた設計の重要性、概念設計から実装までの基本的な流れを整理しました。
 
 データベース設計は、単にテーブルや列を作成する作業ではありません。業務で扱う対象、対象同士の関係、データを長期的にどのように管理するかを先に考える必要があります。適切な設計を行うことで、開発効率を上げ、重複データや保守コストを減らし、将来の機能追加にも対応しやすくなります。
+
+### 2026-05-19
+
+今週はデータベース設計の続きとして、業務内容から ER 図を作成する方法を学習しました。授業メモでは、業務分析やインタビュー内容から名詞を抜き出し、エンティティ、属性、主キー、外部キー、多対多関係の中間表を整理する流れをまとめました。
+
+今回の課題では教育管理システムを例として、講師、コース、受講生、教室、スケジュール、受講などのエンティティを設計しました。スケジュールは「コースコード + 実施開始日」を複合主キーとして管理し、受講表は受講生とスケジュールを結ぶ中間表として扱います。
 
 ### 学習内容
 - `SELECT` / `FROM` の基本的な問い合わせ構文
@@ -101,12 +122,21 @@
 - ER 図の基本部品：エンティティ、属性、リレーションシップ、主キー、外部キー、数量関係を表す線
 - カーディナリティ（Cardinality）：2 つのエンティティ間の数量関係。例：1 対 1、1 対多、多対多
 - オプショナリティ（Optionality）：関係が必須か任意かを表す考え方。例：従業員は必ず部署に所属するが、顧客は注文を持たない場合もある
+- ER 図作成の流れ：業務整理、エンティティ抽出、属性整理、主キー決定、関係整理、外部キー設計
+- インタビューや要件説明から名詞を抜き出し、エンティティと属性を見つける方法
+- 複合主キー：複数の項目で 1 件のレコードを一意に識別するキー
+- 外部キー：関連する表を接続し、参照先データの存在を保証する項目
+- 中間表：多対多関係を表現するための表。例：受講生とスケジュールを結ぶ受講表
+- 教育管理システムの ER 図：講師、コース、受講生、教室、スケジュール、受講
 
 ### ファイル
 - `1/sql_practice.sql`: SQL 復習メモと課題テンプレート
 - `1/DB22_assignment01.sql`: DB22 課題 1 の SQL 解答整理版
 - `2/笔记.md`: データベース設計の授業メモ
 - `2/1.txt`: DB22 課題 1 の SQL 解答の元記録
+- `3/笔记.md`: ER 図作成と教育管理システムのデータベース設計メモ
+- `3/扫描的文稿 2.pdf`: 今週の授業資料スキャン
+- `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理システム ER 図
 
 今後も毎週火曜日に授業内容に合わせて更新します。
 
@@ -125,6 +155,12 @@ This week's topic is a DB2 SQL review. Based on the assignment 1 file, this repo
 This week's topic is database design. The class notes cover why database design matters in system development, why it is important for long-term system use, and the basic workflow from conceptual design to implementation.
 
 Database design is more than creating tables and columns. It starts with understanding business objects, the relationships between those objects, and how data should be maintained over time. A well-designed database improves development efficiency, reduces duplicated data and maintenance cost, and makes future system changes easier.
+
+### 2026-05-19
+
+This week continued the topic of database design, focusing on how to create an ER diagram from business requirements. The notes summarize how to extract nouns from business analysis and interviews, identify entities and attributes, decide primary keys and foreign keys, and convert many-to-many relationships into intermediate tables.
+
+The assignment uses an education management system as the example. The ER diagram includes teachers, courses, students, classrooms, schedules, and enrollments. The schedule table uses a composite primary key of course code and start date, and the enrollment table connects students and schedules.
 
 ### Topics
 - Basic `SELECT` / `FROM` query structure
@@ -157,11 +193,20 @@ Database design is more than creating tables and columns. It starts with underst
 - Basic ER diagram parts: entities, attributes, relationships, primary keys, foreign keys, and lines showing relationship rules
 - Cardinality: the number relationship between two entities, such as one-to-one, one-to-many, and many-to-many
 - Optionality: whether a relationship is required or optional, such as an employee requiring a department while a customer may have no orders
+- ER diagram workflow: business analysis, entity extraction, attribute organization, primary key selection, relationship analysis, and foreign key design
+- Extracting nouns from interviews and requirements to identify entities and attributes
+- Composite primary keys: using multiple columns to uniquely identify one record
+- Foreign keys: connecting related tables and ensuring referenced records exist
+- Intermediate tables: tables used to represent many-to-many relationships, such as the enrollment table between students and schedules
+- Education management system ER diagram: teachers, courses, students, classrooms, schedules, and enrollments
 
 ### Files
 - `1/sql_practice.sql`: SQL review notes and assignment template
 - `1/DB22_assignment01.sql`: Cleaned SQL answers for DB22 assignment 01
 - `2/笔记.md`: Class notes about database design
 - `2/1.txt`: Original SQL answer notes for DB22 assignment 01
+- `3/笔记.md`: Notes about ER diagram creation and education management system database design
+- `3/扫描的文稿 2.pdf`: Scanned class material for this week
+- `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: ER diagram for the education management system
 
 This repository will be updated every Tuesday based on the class content.

@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" modified="2026-05-19T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="db2x-er-final" name="ページ-1">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="DB2x 課題2 DB設計 教育管理システム ER図（Option含む・最終版）" style="text;html=1;strokeColor=none;fillColor=none;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="210" y="35" width="750" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="teacher" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:260px;height:150px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;講師&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;42&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;講師番号&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;講師名&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;電話番号&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="95" y="130" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="course" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:260px;height:150px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;コース&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;42&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;コースコード&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;コース名&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;料金&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="455" y="130" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="student" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:260px;height:150px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;受講生&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;42&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;受講生番号&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;受講生名&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;電話番号&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="815" y="130" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="classroom" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:260px;height:150px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;教室&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;42&quot;&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;教室番号&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;教室名&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;教室サイズ&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="95" y="540" width="260" height="150" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="schedule" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:300px;height:210px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;スケジュール&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;52&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;コースコード&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;PK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;実施開始日&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;講師番号&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;教室番号&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="435" y="405" width="300" height="210" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="enrollment" value="&lt;table border=&quot;1&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; style=&quot;border-collapse:collapse;width:300px;height:170px;&quot;&gt;&lt;tr&gt;&lt;td colspan=&quot;2&quot; align=&quot;center&quot; style=&quot;background-color:#f5f5f5;&quot;&gt;&lt;b&gt;受講&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td width=&quot;52&quot;&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;受講生番号&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;コースコード&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;PK/FK&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;u&gt;&lt;b&gt;実施開始日&lt;/b&gt;&lt;/u&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="shape=rect;html=1;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="795" y="530" width="300" height="170" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e_teacher_schedule" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;" edge="1" parent="1" source="teacher" target="schedule">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_course_schedule" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;" edge="1" parent="1" source="course" target="schedule">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_classroom_schedule" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;" edge="1" parent="1" source="classroom" target="schedule">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_student_enrollment" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;" edge="1" parent="1" source="student" target="enrollment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_schedule_enrollment" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;strokeWidth=2;" edge="1" parent="1" source="schedule" target="enrollment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="note" value="スケジュールは コースコード + 実施開始日 で管理します。受講は 受講生 と スケジュール を結ぶ関係表です。" style="text;html=1;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#333333" vertex="1" parent="1">
+          <mxGeometry x="250" y="735" width="700" height="30" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
