@@ -20,6 +20,12 @@
 
 本次课题以教育管理系统为例，设计了講師、コース、受講生、教室、スケジュール、受講等实体。其中スケジュール使用「コースコード + 実施開始日」作为复合主键，受講表用于连接受講生和スケジュール。
 
+### 2026-05-26
+
+本周继续学习数据库设计，重点是从 ER 图进入表设计。课堂笔记整理了实体如何转换为表、属性如何转换为字段，以及主键、唯一约束、非空约束、外键和命名规则在表设计中的作用。
+
+本周内容还复习了正规化的意义。通过把コース和スケジュール等信息按含义拆分到不同表中，可以减少重复数据，并使用主键和外键保持表之间的关系。
+
 ### 学习内容
 - `SELECT` / `FROM` 的基本查询结构
 - `WHERE` 条件筛选
@@ -57,6 +63,13 @@
 - 外键：连接相关表，并保证引用的数据存在
 - 中间表：用于表达多对多关系，例如受講生和スケジュール之间的受講表
 - 教育管理系统 ER 图：講師、コース、受講生、教室、スケジュール、受講
+- 从 ER 图到表设计：实体转换为表，属性转换为字段
+- 表名和字段名的命名规则：保持统一，使用清楚且容易管理的名称
+- 主键：唯一识别记录，不能重复，也不能为 NULL
+- UNIQUE：限制字段值不能重复
+- NOT NULL：限制字段必须输入值
+- FOREIGN KEY：引用其他表的主键，保持表之间的数据一致性
+- 正规化在表设计中的作用：减少重复数据，避免维护问题
 
 ### 文件说明
 - `1/sql_practice.sql`: SQL 复习记录和课题模板
@@ -65,6 +78,8 @@
 - `2/1.txt`: DB22 课题 1 SQL 答案原始记录
 - `3/笔记.md`: ER 图作成和教育管理系统数据库设计笔记
 - `3/扫描的文稿 2.pdf`: 本周课堂资料扫描文件
+- `4/笔记.md`: ER 图到表设计、约束条件和正规化课堂笔记
+- `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 本周课堂照片资料
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理系统 ER 图
 
 之后每周二根据课堂内容继续更新。
@@ -90,6 +105,12 @@
 今週はデータベース設計の続きとして、業務内容から ER 図を作成する方法を学習しました。授業メモでは、業務分析やインタビュー内容から名詞を抜き出し、エンティティ、属性、主キー、外部キー、多対多関係の中間表を整理する流れをまとめました。
 
 今回の課題では教育管理システムを例として、講師、コース、受講生、教室、スケジュール、受講などのエンティティを設計しました。スケジュールは「コースコード + 実施開始日」を複合主キーとして管理し、受講表は受講生とスケジュールを結ぶ中間表として扱います。
+
+### 2026-05-26
+
+今週はデータベース設計の続きとして、ER 図からテーブル設計へ進む内容を学習しました。授業メモでは、エンティティをテーブルへ、属性をカラムへ変換する考え方と、主キー、ユニーク制約、NOT NULL 制約、外部キー、命名規則を整理しました。
+
+また、正規化の意味も復習しました。コースとスケジュールなどの情報を意味ごとに分けて管理することで、データの重複を減らし、主キーと外部キーでテーブル間の関係を保てます。
 
 ### 学習内容
 - `SELECT` / `FROM` の基本的な問い合わせ構文
@@ -128,6 +149,13 @@
 - 外部キー：関連する表を接続し、参照先データの存在を保証する項目
 - 中間表：多対多関係を表現するための表。例：受講生とスケジュールを結ぶ受講表
 - 教育管理システムの ER 図：講師、コース、受講生、教室、スケジュール、受講
+- ER 図からテーブル設計へ：エンティティをテーブルに、属性をカラムに変換する
+- テーブル名とカラム名の命名規則：統一された分かりやすい名前を使う
+- 主キー：レコードを一意に識別し、重複と NULL を許可しない
+- UNIQUE：値の重複を禁止する
+- NOT NULL：値の入力を必須にする
+- FOREIGN KEY：他のテーブルの主キーを参照し、表同士の整合性を保つ
+- 正規化の役割：データの重複を減らし、保守しやすい構造にする
 
 ### ファイル
 - `1/sql_practice.sql`: SQL 復習メモと課題テンプレート
@@ -136,6 +164,8 @@
 - `2/1.txt`: DB22 課題 1 の SQL 解答の元記録
 - `3/笔记.md`: ER 図作成と教育管理システムのデータベース設計メモ
 - `3/扫描的文稿 2.pdf`: 今週の授業資料スキャン
+- `4/笔记.md`: ER 図からテーブル設計、制約条件、正規化に関する授業メモ
+- `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 今週の授業写真資料
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理システム ER 図
 
 今後も毎週火曜日に授業内容に合わせて更新します。
@@ -161,6 +191,12 @@ Database design is more than creating tables and columns. It starts with underst
 This week continued the topic of database design, focusing on how to create an ER diagram from business requirements. The notes summarize how to extract nouns from business analysis and interviews, identify entities and attributes, decide primary keys and foreign keys, and convert many-to-many relationships into intermediate tables.
 
 The assignment uses an education management system as the example. The ER diagram includes teachers, courses, students, classrooms, schedules, and enrollments. The schedule table uses a composite primary key of course code and start date, and the enrollment table connects students and schedules.
+
+### 2026-05-26
+
+This week continued database design by moving from ER diagrams to table design. The notes summarize how entities become tables, how attributes become columns, and how primary keys, unique constraints, NOT NULL constraints, foreign keys, and naming rules are used in table design.
+
+The class also reviewed normalization. By separating information such as courses and schedules according to meaning, the database can reduce duplication and keep table relationships consistent with primary keys and foreign keys.
 
 ### Topics
 - Basic `SELECT` / `FROM` query structure
@@ -199,6 +235,13 @@ The assignment uses an education management system as the example. The ER diagra
 - Foreign keys: connecting related tables and ensuring referenced records exist
 - Intermediate tables: tables used to represent many-to-many relationships, such as the enrollment table between students and schedules
 - Education management system ER diagram: teachers, courses, students, classrooms, schedules, and enrollments
+- From ER diagram to table design: converting entities into tables and attributes into columns
+- Table and column naming rules: using consistent and understandable names
+- Primary key: uniquely identifies records and cannot be duplicated or NULL
+- UNIQUE: prevents duplicate values
+- NOT NULL: requires a value
+- FOREIGN KEY: references another table's primary key and keeps data consistent
+- Role of normalization in table design: reducing duplicated data and improving maintainability
 
 ### Files
 - `1/sql_practice.sql`: SQL review notes and assignment template
@@ -207,6 +250,8 @@ The assignment uses an education management system as the example. The ER diagra
 - `2/1.txt`: Original SQL answer notes for DB22 assignment 01
 - `3/笔记.md`: Notes about ER diagram creation and education management system database design
 - `3/扫描的文稿 2.pdf`: Scanned class material for this week
+- `4/笔记.md`: Class notes about ER diagrams, table design, constraints, and normalization
+- `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: Class photo material for this week
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: ER diagram for the education management system
 
 This repository will be updated every Tuesday based on the class content.
