@@ -26,6 +26,12 @@
 
 本周内容还复习了正规化的意义。通过把コース和スケジュール等信息按含义拆分到不同表中，可以减少重复数据，并使用主键和外键保持表之间的关系。
 
+### 2026-06-02
+
+本周学习正規化，使用教育管理系统的受講票数据作为练习材料，从第一范式到第三范式进行逐步分解。
+
+以受講者ID 200001（秋元正則）报名3门课程的数据为例，演示了如何识别部分依赖和传递依赖，并拆分为受講者表、受講申し込み表、コース表、コーススケジュール表、講師表共5张规范化表。
+
 ### 学习内容
 - `SELECT` / `FROM` 的基本查询结构
 - `WHERE` 条件筛选
@@ -70,6 +76,10 @@
 - NOT NULL：限制字段必须输入值
 - FOREIGN KEY：引用其他表的主键，保持表之间的数据一致性
 - 正规化在表设计中的作用：减少重复数据，避免维护问题
+- 正规化步骤：第一范式（消除重复列）→ 第二范式（消除部分依赖）→ 第三范式（消除传递依赖）
+- 部分依赖：字段只依赖复合主键的一部分，需要拆出到单独表
+- 传递依赖：非主键字段依赖另一个非主键字段，需要再次拆分
+- 教育系统正规化结果：受講者表、受講申し込み表、コース表、コーススケジュール表、講師表
 
 ### 文件说明
 - `1/sql_practice.sql`: SQL 复习记录和课题模板
@@ -80,6 +90,8 @@
 - `3/扫描的文稿 2.pdf`: 本周课堂资料扫描文件
 - `4/笔记.md`: ER 图到表设计、约束条件和正规化课堂笔记
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 本周课堂照片资料
+- `5/笔记.md`: 正规化课堂笔记（1NF/2NF/3NF 具体步骤和5表拆分结果）
+- `5/DB2x_設計_正規化ワークシート.xlsx`: 正规化练习 worksheet
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理系统 ER 图
 
 之后每周二根据课堂内容继续更新。
@@ -111,6 +123,12 @@
 今週はデータベース設計の続きとして、ER 図からテーブル設計へ進む内容を学習しました。授業メモでは、エンティティをテーブルへ、属性をカラムへ変換する考え方と、主キー、ユニーク制約、NOT NULL 制約、外部キー、命名規則を整理しました。
 
 また、正規化の意味も復習しました。コースとスケジュールなどの情報を意味ごとに分けて管理することで、データの重複を減らし、主キーと外部キーでテーブル間の関係を保てます。
+
+### 2026-06-02
+
+今週は正規化を学習しました。教育管理システムの受講票データをもとに、第1正規形から第3正規形まで段階的にテーブルを分解する練習を行いました。
+
+受講者ID 200001（秋元正則）が3コースを受講するデータを例として、部分従属と推移従属を識別し、受講者テーブル・受講申し込みテーブル・コーステーブル・コーススケジュールテーブル・講師テーブルの5テーブルに分解しました。
 
 ### 学習内容
 - `SELECT` / `FROM` の基本的な問い合わせ構文
@@ -156,6 +174,10 @@
 - NOT NULL：値の入力を必須にする
 - FOREIGN KEY：他のテーブルの主キーを参照し、表同士の整合性を保つ
 - 正規化の役割：データの重複を減らし、保守しやすい構造にする
+- 正規化の手順：第1正規形（繰り返し列の排除）→ 第2正規形（部分従属の排除）→ 第3正規形（推移従属の排除）
+- 部分従属：複合主キーの一部だけに依存する項目を切り出す
+- 推移従属：非キー項目が別の非キー項目に依存する場合はさらに分割する
+- 教育システム正規化結果：受講者テーブル・受講申し込みテーブル・コーステーブル・コーススケジュールテーブル・講師テーブル
 
 ### ファイル
 - `1/sql_practice.sql`: SQL 復習メモと課題テンプレート
@@ -166,6 +188,8 @@
 - `3/扫描的文稿 2.pdf`: 今週の授業資料スキャン
 - `4/笔记.md`: ER 図からテーブル設計、制約条件、正規化に関する授業メモ
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 今週の授業写真資料
+- `5/笔记.md`: 正規化の授業メモ（1NF/2NF/3NF の手順と5テーブルへの分解結果）
+- `5/DB2x_設計_正規化ワークシート.xlsx`: 正規化練習用ワークシート
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理システム ER 図
 
 今後も毎週火曜日に授業内容に合わせて更新します。
@@ -197,6 +221,12 @@ The assignment uses an education management system as the example. The ER diagra
 This week continued database design by moving from ER diagrams to table design. The notes summarize how entities become tables, how attributes become columns, and how primary keys, unique constraints, NOT NULL constraints, foreign keys, and naming rules are used in table design.
 
 The class also reviewed normalization. By separating information such as courses and schedules according to meaning, the database can reduce duplication and keep table relationships consistent with primary keys and foreign keys.
+
+### 2026-06-02
+
+This week covered normalization in depth. Using enrollment ticket data from an education management system, we practiced decomposing tables step by step from 1NF to 3NF.
+
+Starting from a single denormalized table of student 200001 (Akimoto Masanori) enrolled in three courses, we identified partial dependencies and transitive dependencies, and split the data into five normalized tables: student, enrollment, course, course schedule, and instructor.
 
 ### Topics
 - Basic `SELECT` / `FROM` query structure
@@ -242,6 +272,10 @@ The class also reviewed normalization. By separating information such as courses
 - NOT NULL: requires a value
 - FOREIGN KEY: references another table's primary key and keeps data consistent
 - Role of normalization in table design: reducing duplicated data and improving maintainability
+- Normalization steps: 1NF (remove repeating columns) → 2NF (remove partial dependencies) → 3NF (remove transitive dependencies)
+- Partial dependency: a non-key column depends on only part of a composite primary key
+- Transitive dependency: a non-key column depends on another non-key column
+- Education system normalization result: student table, enrollment table, course table, course schedule table, instructor table
 
 ### Files
 - `1/sql_practice.sql`: SQL review notes and assignment template
@@ -252,6 +286,8 @@ The class also reviewed normalization. By separating information such as courses
 - `3/扫描的文稿 2.pdf`: Scanned class material for this week
 - `4/笔记.md`: Class notes about ER diagrams, table design, constraints, and normalization
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: Class photo material for this week
+- `5/笔记.md`: Class notes about normalization (1NF/2NF/3NF steps and 5-table decomposition result)
+- `5/DB2x_設計_正規化ワークシート.xlsx`: Normalization practice worksheet
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: ER diagram for the education management system
 
 This repository will be updated every Tuesday based on the class content.
