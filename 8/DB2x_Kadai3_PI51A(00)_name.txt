@@ -1,0 +1,60 @@
+/* 2026  課題03テーブル設計  */
+/* テーブル実装                  */
+/* Class:PI51A(00)  Name:任大侠   */
+
+
+DROP TABLE T_Assignments;
+DROP TABLE T_Course;
+DROP TABLE T_Instructors;
+
+
+/* 1番目の表作成 */
+
+CREATE TABLE T_Course
+(
+F_CourseCode   CHAR(4)       NOT NULL,
+F_CourseName   VARCHAR(100)  NOT NULL,
+F_CourseFee    INT           NOT NULL,
+F_EventPeriod  INT           NOT NULL,
+Primary key(F_CourseCode)
+);
+
+/* テーブル作成2 */
+
+CREATE TABLE T_Instructors
+(
+F_InstractorID  CHAR(4)      NOT NULL,
+F_Name          VARCHAR(50)  NOT NULL,
+F_PhoneNo       VARCHAR(20),
+Primary key(F_InstractorID)
+);
+
+/* テーブル作成3 */
+
+CREATE TABLE T_Assignments
+(
+F_CourseCode    CHAR(4)  NOT NULL,
+F_InstractorID  CHAR(4)  NOT NULL,
+Primary key(F_CourseCode, F_InstractorID),
+Foreign key(F_CourseCode)   references T_Course(F_CourseCode),
+Foreign key(F_InstractorID) references T_Instructors(F_InstractorID)
+);
+
+
+/* オプション：作成したテーブルにデータをINSERTしてみる
+
+INSERT INTO T_Course VALUES('JV01','JAVA入門',10000,1);
+INSERT INTO T_Course VALUES('JV03','JAVA応用',30000,3);
+INSERT INTO T_Course VALUES('UX01','UNIX入門',10000,1);
+INSERT INTO T_Course VALUES('UX13','UNIX構築',30000,3);
+INSERT INTO T_Course VALUES('NT01','NetWork入門',10000,1);
+INSERT INTO T_Course VALUES('NT15','NetWork構築',35000,5);
+
+INSERT INTO T_Instructors VALUES('0011','佐野 次郎','080-0001-0001');
+INSERT INTO T_Instructors VALUES('0202','小林 典子',NULL);
+INSERT INTO T_Instructors VALUES('1013','小林 健','090-1111-1111');
+
+*/
+
+
+/* END */
