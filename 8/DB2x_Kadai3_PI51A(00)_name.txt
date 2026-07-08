@@ -23,10 +23,10 @@ Primary key(F_CourseCode)
 
 CREATE TABLE T_Instructors
 (
-F_InstractorID  CHAR(4)      NOT NULL,
+F_InstructorID  CHAR(4)      NOT NULL,
 F_Name          VARCHAR(50)  NOT NULL,
 F_PhoneNo       VARCHAR(20),
-Primary key(F_InstractorID)
+Primary key(F_InstructorID)
 );
 
 /* テーブル作成3 */
@@ -34,10 +34,10 @@ Primary key(F_InstractorID)
 CREATE TABLE T_Assignments
 (
 F_CourseCode    CHAR(4)  NOT NULL,
-F_InstractorID  CHAR(4)  NOT NULL,
-Primary key(F_CourseCode, F_InstractorID),
+F_InstructorID  CHAR(4)  NOT NULL,
+Primary key(F_CourseCode, F_InstructorID),
 Foreign key(F_CourseCode)   references T_Course(F_CourseCode),
-Foreign key(F_InstractorID) references T_Instructors(F_InstractorID)
+Foreign key(F_InstructorID) references T_Instructors(F_InstructorID)
 );
 
 
