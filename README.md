@@ -32,6 +32,14 @@
 
 以受講者ID 200001（秋元正則）报名3门课程的数据为例，演示了如何识别部分依赖和传递依赖，并拆分为受講者表、受講申し込み表、コース表、コーススケジュール表、講師表共5张规范化表。
 
+### 2026-07-14
+
+本周完成课题 4「確認テスト」（评价课题），得分 70/100。测验覆盖了本学期的主要内容：关系数据库操作（結合・射影・選択）、ER 图三要素、约束（NOT NULL、主键、外键）、数据库设计流程、内部/外部结合、正规化和参照制約。
+
+错题集中在：射影和選択的行列区分、ER 图中属性的识别、主键的数据类型不限于 INTEGER、内部结合与子查询的区别、拆表时外键属性的归属，以及参照制約下允许的操作。详细的错题解析整理在 `kadai/課題4.md`。
+
+本周课堂内容包括：表连接（JOIN）的目的和种类、设计流程（ER 图作成和表设计）复习、索引（INDEX）的作用和更新代价、视图（VIEW）作为虚拟表的概念及其优点（简化复杂 SQL、提高安全性）。课堂笔记整理在 `10/7_14.md`。
+
 ### 学习内容
 - `SELECT` / `FROM` 的基本查询结构
 - `WHERE` 条件筛选
@@ -80,6 +88,14 @@
 - 部分依赖：字段只依赖复合主键的一部分，需要拆出到单独表
 - 传递依赖：非主键字段依赖另一个非主键字段，需要再次拆分
 - 教育系统正规化结果：受講者表、受講申し込み表、コース表、コーススケジュール表、講師表
+- JOIN 的目的：正规化拆开的表在查询时按主键和外键重新组合
+- 内部结合、外部结合（LEFT JOIN）和自连接的区别
+- INDEX（索引）：加快大量数据的检索速度，但更新时有 CPU 和内存开销
+- 主键自动带有索引，不需要手动创建
+- `CREATE INDEX` / `DROP INDEX` 语法
+- VIEW（视图）：没有实体的虚拟表，本质是保存下来的 SELECT 语句
+- VIEW 的优点：不用每次写复杂 SQL、可以隐藏敏感列提高安全性
+- `CREATE VIEW` / `DROP VIEW` 语法
 
 ### 文件说明
 - `1/sql_practice.sql`: SQL 复习记录和课题模板
@@ -92,6 +108,9 @@
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 本周课堂照片资料
 - `5/笔记.md`: 正规化课堂笔记（1NF/2NF/3NF 具体步骤和5表拆分结果）
 - `5/DB2x_設計_正規化ワークシート.xlsx`: 正规化练习 worksheet
+- `10/7_14.md`: 表连接、INDEX 和 VIEW 课堂笔记
+- `kadai/課題4.png`: 课题 4 確認テスト答卷照片
+- `kadai/課題4.md`: 课题 4 答案整理与错题解析
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理系统 ER 图
 
 之后每周二根据课堂内容继续更新。
@@ -129,6 +148,14 @@
 今週は正規化を学習しました。教育管理システムの受講票データをもとに、第1正規形から第3正規形まで段階的にテーブルを分解する練習を行いました。
 
 受講者ID 200001（秋元正則）が3コースを受講するデータを例として、部分従属と推移従属を識別し、受講者テーブル・受講申し込みテーブル・コーステーブル・コーススケジュールテーブル・講師テーブルの5テーブルに分解しました。
+
+### 2026-07-14
+
+今週は課題 4「確認テスト」（評価課題）を実施し、得点は 70/100 でした。テストの範囲は今学期の主要内容で、関係データベースの操作（結合・射影・選択）、ER 図の構成要素、制約（NOT NULL・主キー・外部キー）、データベース設計の流れ、内部結合と外部結合、正規化、参照制約が含まれます。
+
+間違えた問題は、射影と選択の行・列の区別、ER 図における属性の識別、主キーのデータ型は INTEGER に限らないこと、内部結合とサブクエリの違い、テーブル分解時の外部キー属性の扱い、参照制約のもとで実行可能な操作でした。詳しい解説は `kadai/課題4.md` にまとめています。
+
+今週の授業内容は、テーブル結合（JOIN）の目的と種類、設計の流れ（ER 図作成とテーブル設計）の復習、インデックス（INDEX）の役割と更新コスト、仮想の表としてのビュー（VIEW）の概念とその利点（複雑な SQL の簡略化、セキュリティ向上）です。授業メモは `10/7_14.md` にまとめています。
 
 ### 学習内容
 - `SELECT` / `FROM` の基本的な問い合わせ構文
@@ -178,6 +205,14 @@
 - 部分従属：複合主キーの一部だけに依存する項目を切り出す
 - 推移従属：非キー項目が別の非キー項目に依存する場合はさらに分割する
 - 教育システム正規化結果：受講者テーブル・受講申し込みテーブル・コーステーブル・コーススケジュールテーブル・講師テーブル
+- JOIN の目的：正規化で分割したテーブルを、主キーと外部キーで再び組み合わせる
+- 内部結合、外部結合（LEFT JOIN）、自己結合の違い
+- INDEX（索引）：大量データの検索を高速化するが、更新時に CPU・メモリの負荷がかかる
+- 主キーは自動的にインデックスを持つため、手動で作成する必要はない
+- `CREATE INDEX` / `DROP INDEX` の構文
+- VIEW（ビュー）：実体を持たない仮想の表で、実体は保存された SELECT 文
+- VIEW の利点：複雑な SQL を毎回書かなくて良い、機密性の高い列を隠してセキュリティを高められる
+- `CREATE VIEW` / `DROP VIEW` の構文
 
 ### ファイル
 - `1/sql_practice.sql`: SQL 復習メモと課題テンプレート
@@ -190,6 +225,9 @@
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: 今週の授業写真資料
 - `5/笔记.md`: 正規化の授業メモ（1NF/2NF/3NF の手順と5テーブルへの分解結果）
 - `5/DB2x_設計_正規化ワークシート.xlsx`: 正規化練習用ワークシート
+- `10/7_14.md`: テーブル結合・INDEX・VIEW の授業メモ
+- `kadai/課題4.png`: 課題 4 確認テストの答案写真
+- `kadai/課題4.md`: 課題 4 の解答整理と間違えた問題の解説
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: 教育管理システム ER 図
 
 今後も毎週火曜日に授業内容に合わせて更新します。
@@ -227,6 +265,14 @@ The class also reviewed normalization. By separating information such as courses
 This week covered normalization in depth. Using enrollment ticket data from an education management system, we practiced decomposing tables step by step from 1NF to 3NF.
 
 Starting from a single denormalized table of student 200001 (Akimoto Masanori) enrolled in three courses, we identified partial dependencies and transitive dependencies, and split the data into five normalized tables: student, enrollment, course, course schedule, and instructor.
+
+### 2026-07-14
+
+This week I took assignment 4, the graded review test, and scored 70/100. The test covered the main topics of this term: relational database operations (join, projection, selection), ER diagram components, constraints (NOT NULL, primary key, foreign key), the database design workflow, inner and outer joins, normalization, and referential constraints.
+
+The mistakes were about distinguishing projection (columns) from selection (rows), identifying attributes in an ER diagram, the fact that a primary key does not have to be an INTEGER, the difference between an inner join and a subquery, which attribute becomes the shared foreign key when splitting tables, and which operations are allowed under referential constraints. Detailed explanations are in `kadai/課題4.md`.
+
+This week's class also covered the purpose and types of table joins (JOIN), a review of the design workflow (ER diagram creation and table design), the role and update cost of indexes (INDEX), and views (VIEW) as virtual tables with their benefits (simplifying complex SQL and improving security). The class notes are in `10/7_14.md`.
 
 ### Topics
 - Basic `SELECT` / `FROM` query structure
@@ -276,6 +322,14 @@ Starting from a single denormalized table of student 200001 (Akimoto Masanori) e
 - Partial dependency: a non-key column depends on only part of a composite primary key
 - Transitive dependency: a non-key column depends on another non-key column
 - Education system normalization result: student table, enrollment table, course table, course schedule table, instructor table
+- Purpose of JOIN: recombining tables split by normalization using primary keys and foreign keys
+- Differences between inner joins, outer joins (LEFT JOIN), and self joins
+- INDEX: speeds up searching large amounts of data, but adds CPU and memory cost on updates
+- Primary keys are indexed automatically, so no manual index is needed
+- `CREATE INDEX` / `DROP INDEX` syntax
+- VIEW: a virtual table with no physical data, essentially a saved SELECT statement
+- Benefits of views: no need to rewrite complex SQL, and sensitive columns can be hidden for security
+- `CREATE VIEW` / `DROP VIEW` syntax
 
 ### Files
 - `1/sql_practice.sql`: SQL review notes and assignment template
@@ -288,6 +342,9 @@ Starting from a single denormalized table of student 200001 (Akimoto Masanori) e
 - `4/B085FB5D-BCC7-4FC9-9E50-B7962665388D.heic`: Class photo material for this week
 - `5/笔记.md`: Class notes about normalization (1NF/2NF/3NF steps and 5-table decomposition result)
 - `5/DB2x_設計_正規化ワークシート.xlsx`: Normalization practice worksheet
+- `10/7_14.md`: Class notes about table joins, INDEX, and VIEW
+- `kadai/課題4.png`: Photo of the graded assignment 4 review test
+- `kadai/課題4.md`: Assignment 4 answer summary and explanations of mistakes
 - `outputs/er_diagram/DB2x_課題02_設計_ER図.drawio`: ER diagram for the education management system
 
 This repository will be updated every Tuesday based on the class content.
